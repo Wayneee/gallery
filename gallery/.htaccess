@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "My Protected Area"
+AuthUserFile  /volume1/Web/gallery/.htpasswd
+Require valid-user

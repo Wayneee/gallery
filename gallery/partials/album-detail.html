@@ -1,0 +1,43 @@
+<div class="page-header">
+	<h1 view-title>{{albumName}}</h1>
+</div>
+<div masonry>
+	<div class="thumbnail"
+		ng-repeat="photo in photos">
+		<div ng-switch="getFileType(photo.filename)" >
+			<a ng-href="javascript:return false" data-toggle="modal"
+				data-target="#fullimage-{{$index}}" ng-click="loadFullImage()">
+				<img ng-src="service/photo.php?name={{albumName | escape}}/{{photo.filename | escape}}&type=thumb"/>
+				<span class="badge"> <span ng-switch-when="image"
+					class="glyphicon glyphicon-picture"></span> <span
+					ng-switch-when="video" class="glyphicon glyphicon-facetime-video"></span>
+					<span ng-switch-default class="glyphicon glyphicon-folder-close"></span>
+			</span>
+			</a> {{photo.filename}}
+
+			<!-- Modal -->
+			<div class="modal fade" id="fullimage-{{$index}}" tabindex="-1"
+				role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-content">
+						<div class="modal-body"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button"
+							aria-label="Download"  class="btn btn-link">
+							<span aria-hidden="true"  class="glyphicon glyphicon-download"></span>
+						</button>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
