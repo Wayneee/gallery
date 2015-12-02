@@ -1,13 +1,15 @@
 <div class="page-header">
 	<h1 view-title>{{albumName}}</h1>
 </div>
-<div masonry>
-	<div class="thumbnail"
+<div>
+	<div class="col-sm-3"
 		ng-repeat="photo in photos">
-		<div ng-switch="getFileType(photo.filename)" >
+		<div ng-switch="getFileType(photo.filename)" class="thumbnail" >
 			<a ng-href="javascript:return false" data-toggle="modal"
 				data-target="#fullimage-{{$index}}" ng-click="loadFullImage()">
-				<img ng-src="service/photo.php?name={{albumName | escape}}/{{photo.filename | escape}}&type=thumb"/>
+				<div afkl-lazy-image="service/photo.php?name={{albumName | escape}}/{{photo.filename | escape}}&type=thumb" 
+    class="afkl-lazy-wrapper"></div>
+<!-- 				<img ng-src="service/photo.php?name={{albumName | escape}}/{{photo.filename | escape}}&type=thumb"/> -->
 				<span class="badge"> <span ng-switch-when="image"
 					class="glyphicon glyphicon-picture"></span> <span
 					ng-switch-when="video" class="glyphicon glyphicon-facetime-video"></span>

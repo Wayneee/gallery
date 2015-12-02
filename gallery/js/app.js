@@ -1,8 +1,7 @@
 var galleryApp = angular.module('galleryApp', [
   'ngRoute',
   'galleryControllers',
-  'afkl.lazyImage',
-  'wu.masonry'
+  'afkl.lazyImage'
 ]);
 
 galleryApp.filter('escape', function() {
