@@ -23,10 +23,14 @@ function outputImage($createfromfn, $imagefn, $type, $header, $imgname)
         imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
         
         $imagefn($thumb);
+
+        imagedestroy($thumb);
     } else {
         $source = $createfromfn($imgname);
         $imagefn($source);
     }
+
+    imagedestroy($source);
 } 
 
 
